@@ -8,7 +8,7 @@ public class SongrControllerTest {
     @Test
     public void testCapitalizeAllLowerCase() {
         SongrController classUnderTest = new SongrController();
-        String expectedOutput = classUnderTest.capitalize("this better get upperacsed");
+        String expectedOutput = classUnderTest.capitalize("this better get uppercased");
         assertEquals("String output should be capitalized.", expectedOutput, "THIS BETTER GET UPPERCASED");
     }
 
