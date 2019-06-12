@@ -65,6 +65,6 @@ On the web browser type localhost:8080/(parameters)
 /reverse/{sentence} where sentence is the string you wish to be reversed, and you'll get reversed sentence in return.
 
 
-[Link to SongrController.java]()
+[Link to SongrController.java](https://github.com/sadhikari07/songr/blob/master/src/main/java/com/sudadh/code401javaSongr/songrLab/SongrController.java)
 
 [Link to SongrControllerTest.java]()
