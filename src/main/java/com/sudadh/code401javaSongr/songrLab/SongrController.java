@@ -2,6 +2,7 @@ package com.sudadh.code401javaSongr.songrLab;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -38,9 +39,9 @@ public class SongrController {
     }
 
 
-    @GetMapping("/capitalize/{sentence}")
+    @GetMapping("/capitalize")
 
-    public String getCapitalizedSentence(@PathVariable String sentence){
+    public String getCapitalizedSentence(@RequestParam String sentence){
         return capitalize(sentence);
     }
 
