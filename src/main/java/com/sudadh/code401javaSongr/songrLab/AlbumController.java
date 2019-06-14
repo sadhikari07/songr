@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 
 @Controller
 public class AlbumController {
@@ -24,14 +26,12 @@ public class AlbumController {
     }
 
 
-    @GetMapping("/song/{id}/randomSong")
-    public String getRandomSong(@PathVariable long id, Model m) {
-        // .get to get value inside of optional
-        Album a = albumRepository.findById(id).get();
-        long size = a.getSong().size();
-        Song randomSong = a.getSong().get((int)(Math.random() * size));
-        m.addAttribute("album", randomSong);
-        return "randomSong";
+
+    @GetMapping("/album/{name}")
+    public String getThatAlbum( @PathVariable("albumName") String albumName, Model m) {
+        Album a = albumRepository.findByName(albumName).get(0);
+        m.addAttribute("albumName", a);
+        return "songsInOneAlbum";
     }
 
 

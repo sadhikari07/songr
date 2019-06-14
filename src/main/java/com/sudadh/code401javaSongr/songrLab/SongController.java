@@ -30,14 +30,12 @@ public class SongController{
     public RedirectView addSong(@RequestParam String title,  int length, int trackNumber, String album) {
         List<Album> songWithThatAlbum = albumRepository.findByName(album);
 
-
         if(songWithThatAlbum.size() > 0) {
             Song song = new Song(title, length, trackNumber, songWithThatAlbum.get(0));
             songRepository.save(song);
             return new RedirectView("/song");
         } else {
-
-             Album albumToAdd = new Album(title, "someone", 1, length, "someUrl");
+            Album albumToAdd = new Album(album, "Unknown", 1, length, "https://cdn.pixabay.com/photo/2016/04/20/19/47/wolf-1341881__480.jpg");
             Song song = new Song(title, length, trackNumber, albumToAdd);
             albumRepository.save(albumToAdd);
             songRepository.save(song);

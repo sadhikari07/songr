@@ -8,9 +8,13 @@
 <h1>All the songs in the database</h1>
 <ul>
     <li th:each="song : ${song}">
+
         <span th:text="${song.title}"></span>
+
         <span th:text="${song.length}"></span>
+
         <span th:text="${song.trackNumber}"></span>
+
         <span th:text="${song.album.name}"></span>
     </li>
 </ul>
@@ -18,10 +22,15 @@
 <h2>Add songs</h2>
 
 <form method="POST" action="/song/add">
+    <p></p>
     <input name="title" type="text"/>Title
+    <p></p>
     <input name="length" type="number"/>Length
-    <input name="trackNumber" type="number"/>Song Count
+    <p></p>
+    <input name="trackNumber" type="number"/>Track number
+    <p></p>
     <input name="album" type="text"/>Album
+    <p></p>
     <button>Submit</button>
 </form>
 </body>
