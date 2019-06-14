@@ -1,9 +1,7 @@
 package com.sudadh.code401javaSongr.songrLab;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -13,25 +11,29 @@ public class Album {
     long id;
 
 
-    String title;
+    String name;
     String artist;
     int songCount;
     int length;
     String imageUrl;
 
+    // mappedBy String comes from name of instance var in Album.java
+    @OneToMany(mappedBy = "album")
+    List<Song> song;
+
 
     public Album() {}
 
-    public Album(String title, String artist, int songCount, int length, String imageUrl) {
-        this.title = title;
+    public Album(String name, String artist, int songCount, int length, String imageUrl) {
+        this.name = name;
         this.artist = artist;
         this.songCount = songCount;
         this.length = length;
         this.imageUrl = imageUrl;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public String getArtist() {
@@ -50,8 +52,8 @@ public class Album {
         return imageUrl;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setArtist(String artist) {
@@ -70,6 +72,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    public List<Song> getSong() {
+        return song;
+    }
 
 }
 
