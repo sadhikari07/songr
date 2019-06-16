@@ -8,14 +8,24 @@
 <h1>All the album info</h1>
 <ul>
     <li th:each="album : ${album}">
+        <h3>Name of the album: </h3>
         <span th:text="${album.name}"></span>
+
+        <h3>Artist: </h3>
         <span th:text="${album.artist}"></span>
+
+        <h3>Song count: </h3>
         <span th:text="${album.songCount}"></span>
+
+        <h3>Lengrth of the album: </h3>
         <span th:text="${album.length}"></span>
-        <img height="50px" width="50px" th:src="${album.imageUrl}"></img>
+
+        <h3>Image:</h3>
+        <h3> <img height="50px" width="50px" th:src="${album.imageUrl}"></img> </h3>
+
+        <h3>Songs in this album:</h3>
         <span th:each="song: ${album.song}" ><p th:text="${song.title}"></p></span>
     </li>
-
 
 
 

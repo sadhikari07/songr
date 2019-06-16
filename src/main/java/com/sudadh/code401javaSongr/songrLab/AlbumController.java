@@ -28,8 +28,8 @@ public class AlbumController {
 
 
     @GetMapping("/album/{name}")
-    public String getThatAlbum( @PathVariable("albumName") String albumName, Model m) {
-        Album a = albumRepository.findByName(albumName).get(0);
+    public String getThatAlbum( @PathVariable String name, Model m) {
+        Album a = albumRepository.findByName(name).get(0);
         m.addAttribute("albumName", a);
         return "songsInOneAlbum";
     }
